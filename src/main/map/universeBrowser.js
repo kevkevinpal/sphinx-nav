@@ -539,13 +539,13 @@ function UniverseBrowser(props) {
     if (!img) img = "noimage.jpeg";
 
     if (nodeMaterials[img]) {
-      material = nodeMaterials[img];
+      material = nodeMaterials[img].clone();
     } else {
       const map = loader.load(img);
       material = new THREE.SpriteMaterial({
         map: map,
       });
-      nodeMaterials[img] = material;
+      nodeMaterials[img] = material.clone();
     }
 
     const sprite = new THREE.Sprite(material);

@@ -169,7 +169,7 @@ async function getGraphData(searchterm: string) {
         : false;
     if (isDev) {
       console.log("is dev", origin);
-      let devUrl = `https://knowledge-graph.sphinx.chat/mock_data`;
+      let devUrl = `https://knowledge-graph.sphinx.chat/searching?word=${searchterm}&free=true`//`https://knowledge-graph.sphinx.chat/mock_data`;
       const res = await fetch(devUrl);
       data = await res.json();
     } else {
@@ -218,18 +218,15 @@ async function getGraphData(searchterm: string) {
 
         topics &&
           topics.forEach((topic: string) => {
-            console.log("show_title", show_title);
-            if (!topicMap[topic]) topicMap[topic] = [show_title];
-            else topicMap[topic].push(show_title);
+            if (!topicMap[topic]) topicMap[topic] = [moment.ref_id];
+            else topicMap[topic].push(moment.ref_id);
           });
 
-        if (moment.node_type === "episode") {
-          guests &&
-            guests.forEach((g: string) => {
-              if (!guestMap[g]) guestMap[g] = [moment.ref_id];
-              else guestMap[g].push(moment.ref_id);
-            });
-        }
+        guests &&
+          guests.forEach((g: string) => {
+            if (!guestMap[g]) guestMap[g] = [moment.ref_id];
+            else guestMap[g].push(moment.ref_id);
+          });
 
         let smallImage: any = moment.image_url;
 
@@ -271,13 +268,9 @@ async function getGraphData(searchterm: string) {
         const topicNodeId = "topicnode_" + index;
 
         // make links to children
-        topicChildren.forEach((showTitle: string) => {
-          const show = data.find(
-            (f) => f.show_title === showTitle && f.node_type === "episode"
-          );
-          const showRefId = show?.ref_id || "";
+        topicChildren.forEach((refId: string) => {
           const link: Link = {
-            source: showRefId,
+            source: refId,
             target: topicNodeId,
           };
           _links.push(link);
