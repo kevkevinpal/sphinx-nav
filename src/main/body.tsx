@@ -138,17 +138,11 @@ export default function BodyComponent() {
 
   const menuWidth = 433;
 
-  function redirect() {
-    let a = document.createElement("a");
-    a.href = "https://sphinx.chat/";
-    a.target = "_blank";
-    a.click();
-  }
   const contentMenuWidth = 433;
   return (
     <Body>
       {!showList && (
-        <Header style={{ opacity: openingAnimation ? 0 : 1 }}>
+        <Header style={{ display: 'flex', flexFlow: 'row', justifyContent: 'center', opacity: openingAnimation ? 0 : 1 }}>
           <Title style={{ fontWeight: 300, width: 260 }}>
             <b>Second</b>Brain
           </Title>
@@ -160,10 +154,6 @@ export default function BodyComponent() {
             onChange={setSearchTerm}
           />
 
-          <div style={{ display: "flex", width: 330 }}>
-            <Button onClick={redirect}>Info</Button>
-            <Button onClick={redirect}>Contribute</Button>
-          </div>
         </Header>
       )}
 

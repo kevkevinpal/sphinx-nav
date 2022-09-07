@@ -22,7 +22,7 @@ const Input = styled.input<{ showList?: boolean }>`
     border: none;
   }
 
-  width: ${({ showList }) => (showList ? "100%" : "40%")};
+  width: ${({ showList }) => (showList ? "100%" : "30%")};
 `;
 
 export const SearchBar = ({
@@ -33,22 +33,22 @@ export const SearchBar = ({
   showList,
 }: Props) => {
   return (
-    <Input
-      showList={showList}
-      className={loading ? "loading" : ""}
-      disabled={loading}
-      type="text"
-      value={value}
-      placeholder="Search ..."
-      onKeyPress={(event: any) => {
-        if (event.key === "Enter") {
-          onEnter?.();
-        }
-      }}
-      onChange={(e) => {
-        const value = e.target.value;
-        onChange(value);
-      }}
-    />
+      <Input
+        showList={showList}
+        className={loading ? "loading" : ""}
+        disabled={loading}
+        type="text"
+        value={value}
+        placeholder="Search (10 sats)"
+        onKeyPress={(event: any) => {
+          if (event.key === "Enter") {
+            onEnter?.();
+          }
+        }}
+        onChange={(e) => {
+          const value = e.target.value;
+          onChange(value);
+        }}
+      />
   );
 };
