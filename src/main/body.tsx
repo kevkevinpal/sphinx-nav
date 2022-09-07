@@ -143,7 +143,7 @@ export default function BodyComponent() {
     <Body>
       {!showList && (
         <Header style={{ display: 'flex', flexFlow: 'row', justifyContent: 'center', opacity: openingAnimation ? 0 : 1 }}>
-          <Title style={{ fontWeight: 300, width: 260 }}>
+          <Title style={{ position: 'absolute', top: 25, left: 25, fontWeight: 300, width: 260 }}>
             <b>Second</b>Brain
           </Title>
 
