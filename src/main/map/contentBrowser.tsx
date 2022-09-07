@@ -3,6 +3,7 @@ import styled from "styled-components";
 import ReactAudioPlayer from "react-audio-player";
 import Booster from "./booster";
 import ClipLoader from "react-spinners/ClipLoader";
+import Loading from '../components/Loading';
 import moment from "moment";
 import { NodesAndLinks, Node, convertFromISOtoSeconds, sleep } from "./helpers";
 
@@ -373,7 +374,7 @@ export default function ContentBrowser(props: ListContent) {
             : Object.keys(timestamps)[0];
           const audioUrl: any = selectedEpisode.link;
 
-          const headPanelHeight = 241;
+          const headPanelHeight = 221;
 
           return (
             <NodePanel key={i + "ouahsf"} id={"head-panel"}>
@@ -744,16 +745,7 @@ export default function ContentBrowser(props: ListContent) {
       </div>
 
       {loading ? (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "100%",
-          }}
-        >
-          <ClipLoader color={"#000"} loading={true} size={14} />
-        </div>
+          <Loading />
       ) : (
         contentView
       )}
