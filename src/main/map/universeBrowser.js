@@ -541,7 +541,7 @@ function UniverseBrowser(props) {
     if (nodeMaterials[img]) {
       material = nodeMaterials[img].clone();
     } else {
-      const map = loader.load('https://stakwork-uploads.s3.amazonaws.com/knowledge-graph-joe/content-images/578e0e82-b52e-452e-a27a-ac64b380ca6e_s.jpg');
+      const map = loader.load(img);
       material = new THREE.SpriteMaterial({
         map: map,
       });
