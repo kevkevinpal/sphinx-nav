@@ -222,11 +222,14 @@ async function getGraphData(searchterm: string) {
             else topicMap[topic].push(moment.ref_id);
           });
 
-        guests &&
+        if (moment.node_type === 'episode') {
+          guests &&
           guests.forEach((g: string) => {
             if (!guestMap[g]) guestMap[g] = [moment.ref_id];
             else guestMap[g].push(moment.ref_id);
-          });
+          });  
+        }
+        
 
         let smallImage: any = moment.image_url;
 
@@ -268,13 +271,13 @@ async function getGraphData(searchterm: string) {
         const topicNodeId = "topicnode_" + index;
 
         // make links to children
-        topicChildren.forEach((refId: string) => {
-          const link: Link = {
-            source: refId,
-            target: topicNodeId,
-          };
-          _links.push(link);
-        });
+        // topicChildren.forEach((refId: string) => {
+        //   const link: Link = {
+        //     source: refId,
+        //     target: topicNodeId,
+        //   };
+        //   _links.push(link);
+        // });
 
         const topicNode: Node = {
           id: topicNodeId,

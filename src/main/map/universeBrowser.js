@@ -54,7 +54,7 @@ function UniverseBrowser(props) {
       graph.clear().graphData(props.graphData);
       const { nodes, links } = props.graphData;
 
-      const manybody = d3.forceManyBody(props.graphData).strength(-40);
+      const manybody = d3.forceManyBody(props.graphData).strength(-80);
       // decide distance here
       const distance = d3.forceLink(props.graphData).distance((d) => {
         let distance = 30;
@@ -67,7 +67,7 @@ function UniverseBrowser(props) {
             distance = 700;
             break;
           case "topic":
-            distance = 1000;
+            distance = 100;
             break;
           case "guest":
             distance = 500;
