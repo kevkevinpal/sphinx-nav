@@ -3,6 +3,7 @@ import * as sphinx from "sphinx-bridge-kevkevinpal";
 import styled from "styled-components";
 import "./body.css";
 import { SearchBar } from "./components/SearchBar";
+import Stats from "./components/Stats";
 import ContentBrowser from "./map/contentBrowser";
 import { getGraphData, getSampleData, NodesAndLinks } from "./map/helpers";
 import MouseTracker from "./map/mouseTracker";
@@ -146,6 +147,9 @@ export default function BodyComponent() {
           <Title style={{ position: 'absolute', top: 25, left: 25, fontWeight: 300, width: 260 }}>
             <b>Second</b>Brain
           </Title>
+							<div style={{ position: 'absolute', top: 75, left: 25, fontWeight: 300, width: 260 }}>
+          <Stats />
+							</div>
 
           <SearchBar
             showList={showList}
