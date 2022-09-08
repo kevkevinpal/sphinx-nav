@@ -15,6 +15,7 @@
     "d3-force-3d": "^3.0.3",
     "gsap": "^3.10.4",
     "lsat-js": "^2.0.5",
+    "macaroon": "^3.0.4",
     "material-icons": "^1.11.6",
     "moment": "^2.29.4",
     "react": "^18.2.0",
